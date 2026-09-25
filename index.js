@@ -2,6 +2,8 @@ const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('modal-close-btn')
 const consentForm = document.getElementById('consent-form')
 const modalText = document.getElementById('modal-text')
+const declineBtn = document.getElementById('decline-btn')
+const modalChoiceBtns = document.getElementById('modal-choice-btns')
 
 setTimeout(function(){
     modal.style.display = 'inline'
@@ -9,7 +11,11 @@ setTimeout(function(){
 
 modalCloseBtn.addEventListener('click', function(){
     modal.style.display = 'none'
-})
+}) 
+
+declineBtn.addEventListener('mouseenter', function(){
+    modalChoiceBtns.classList.toggle('modal-btns-reverse')
+}) 
 
 consentForm.addEventListener('submit', function(e){
     e.preventDefault()
@@ -28,13 +34,7 @@ consentForm.addEventListener('submit', function(e){
         Making the sale...`
     }, 1500)
     
-/*   
-Challenge: 
-1. Make the button that closes the modal disabled.
-2. Make that button become usable when the final 
-   modal message has been displayed to the user.
-*/ 
-
+    
     setTimeout(function(){
         document.getElementById('modal-inner').innerHTML = `
         <h2>Thanks <span class="modal-display-name">${fullName}</span>, you sucker! </h2>
